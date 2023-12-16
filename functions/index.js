@@ -8,7 +8,7 @@ const apiKey = process.env.GOOGLE_API_KEY;
 
 app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Origin", "https://handbrewmap.vercel.app");
-  res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
+  res.setHeader("Access-Control-Allow-Methods", "GET");
   res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
   next();
 });
@@ -26,8 +26,8 @@ app.get("/:placeId", async (req, res) => {
   }
 });
 
-app.listen(6685, () => {
-  console.log(`Server listening on port 6685`);
+app.listen(65137, () => {
+  console.log(`Server listening on port 65137`);
 });
 
 exports.api = functions.https.onRequest(app);
