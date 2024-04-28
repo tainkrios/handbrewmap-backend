@@ -7,7 +7,7 @@ const app = express();
 const apiKey = process.env.GOOGLE_API_KEY;
 
 app.use((req, res, next) => {
-  res.setHeader("Access-Control-Allow-Origin", "https://handbrewmap.vercel.app");
+  res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader("Access-Control-Allow-Methods", "GET");
   res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
   next();
@@ -24,10 +24,6 @@ app.get("/:placeId", async (req, res) => {
     console.error("Error occurred:", error);
     res.status(500).send(`An error occurred while fetching data. ${error}`);
   }
-});
-
-app.listen(65137, () => {
-  console.log(`Server listening on port 65137`);
 });
 
 exports.api = functions.https.onRequest(app);
